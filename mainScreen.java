@@ -23,11 +23,13 @@ import java.io.IOException;
  */
 public class mainScreen extends javax.swing.JFrame {
     
-        Map<String,Integer> cechy = new HashMap<>();
-        Map<String,Integer> zbroja = new HashMap<>();
+        Map<String,String> cechy = new HashMap<>();
+        Map<String,String> zbroja = new HashMap<>();
+        Map<String,String> ogolne = new HashMap<>();
         String[] nazwy = {"A","Żyw","S","Wt","Sz","Mag","PO","PP","WW","US","K","Odp","Zr","Int","SW","Ogd"};
-        String opis_wygl;
+        String opis_wygl, geneza, dziennik;
         String cachedPath = "";
+        
         
     /**
      * Creates new form mainScreen
@@ -62,20 +64,20 @@ public class mainScreen extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField14 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        imieText = new javax.swing.JTextField();
+        rasaText = new javax.swing.JTextField();
+        obProfText = new javax.swing.JTextField();
+        poprProfText = new javax.swing.JTextField();
+        wiekText = new javax.swing.JTextField();
+        kolorWlText = new javax.swing.JTextField();
+        kolorOczText = new javax.swing.JTextField();
+        rodzenstwoText = new javax.swing.JTextField();
+        znakGwiezdnyText = new javax.swing.JTextField();
+        mUroText = new javax.swing.JTextField();
+        znSzczegText = new javax.swing.JTextField();
+        plecCombo = new javax.swing.JComboBox<>();
+        wagaText = new javax.swing.JTextField();
+        ogolnePotwierdz = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         WW = new javax.swing.JTextField();
@@ -128,23 +130,14 @@ public class mainScreen extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jPanel13 = new javax.swing.JPanel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        genezaText = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        dziennikText = new javax.swing.JTextArea();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
+        oPostaciPotwierdzButton = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
@@ -171,11 +164,27 @@ public class mainScreen extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel46 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jList4 = new javax.swing.JList<>();
+        jLabel43 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel42 = new javax.swing.JLabel();
+        iloscZycia = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel47 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jList6 = new javax.swing.JList<>();
+        jButton2 = new javax.swing.JButton();
+        uwzglZbroj = new javax.swing.JCheckBox();
+        uwzglWyt = new javax.swing.JCheckBox();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jZapiszFolder = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jWczytajFolder = new javax.swing.JMenuItem();
+        jSzybkiZapis = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -213,37 +222,42 @@ public class mainScreen extends javax.swing.JFrame {
 
         jLabel36.setText("Znaki szczególne");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        imieText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                imieTextActionPerformed(evt);
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        obProfText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                obProfTextActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        poprProfText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                poprProfTextActionPerformed(evt);
             }
         });
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        kolorWlText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                kolorWlTextActionPerformed(evt);
             }
         });
 
-        jTextField12.setText(" ");
+        mUroText.setText(" ");
 
-        jTextField13.setText(" ");
+        znSzczegText.setText(" ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kobieta", "Mężczyzna" }));
+        plecCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kobieta", "Mężczyzna" }));
 
-        jButton4.setText("Potwierdź");
+        ogolnePotwierdz.setText("Potwierdź");
+        ogolnePotwierdz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ogolnePotwierdzActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -253,7 +267,7 @@ public class mainScreen extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4))
+                        .addComponent(ogolnePotwierdz))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -271,23 +285,23 @@ public class mainScreen extends javax.swing.JFrame {
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(wiekText, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(imieText, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(rasaText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(obProfText, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(poprProfText, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(plecCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                                    .addComponent(wagaText, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
                                     .addGroup(jPanel8Layout.createSequentialGroup()
                                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
-                                            .addComponent(jTextField8))
+                                            .addComponent(kolorOczText, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                                            .addComponent(kolorWlText))
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,10 +309,10 @@ public class mainScreen extends javax.swing.JFrame {
                                     .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(33, 33, 33)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addComponent(jTextField10)
-                            .addComponent(jTextField11)
-                            .addComponent(jTextField12))))
+                            .addComponent(znSzczegText, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                            .addComponent(rodzenstwoText)
+                            .addComponent(znakGwiezdnyText)
+                            .addComponent(mUroText))))
                 .addGap(89, 89, 89))
         );
         jPanel8Layout.setVerticalGroup(
@@ -307,49 +321,49 @@ public class mainScreen extends javax.swing.JFrame {
                 .addGap(72, 72, 72)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(imieText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rasaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(obProfText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(poprProfText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(jLabel33)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wiekText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rodzenstwoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
                     .addComponent(jLabel34)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(znakGwiezdnyText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plecCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(jLabel35)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mUroText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(wagaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(jLabel36)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kolorWlText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(znSzczegText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kolorOczText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
-                .addComponent(jButton4)
+                .addComponent(ogolnePotwierdz)
                 .addContainerGap(86, Short.MAX_VALUE))
         );
 
@@ -583,7 +597,7 @@ public class mainScreen extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel8)))))
-                .addContainerGap(373, Short.MAX_VALUE))
+                .addContainerGap(397, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -778,7 +792,7 @@ public class mainScreen extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(271, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -790,115 +804,24 @@ public class mainScreen extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("zbroja", jPanel3);
 
-        jButton2.setText("atak");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        genezaText.setColumns(20);
+        genezaText.setRows(5);
+        jScrollPane2.setViewportView(genezaText);
 
-        jButton5.setText("obrażenia");
-
-        jList4.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane7.setViewportView(jList4);
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
-        );
-
-        jLabel42.setText("Życie");
-
-        jLabel43.setText("Akcje");
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel42)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jLabel43)
-                .addGap(30, 30, 30))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel42)
-                    .addComponent(jLabel43))
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
-
-        jButton6.setText("Kolejna tura");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5))
-                    .addComponent(jButton6))
-                .addGap(54, 54, 54))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton5))
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton6))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(267, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("walka", jPanel5);
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        dziennikText.setColumns(20);
+        dziennikText.setRows(5);
+        jScrollPane3.setViewportView(dziennikText);
 
         jLabel37.setText("geneza");
 
         jLabel38.setText("dziennik");
+
+        oPostaciPotwierdzButton.setText("Potwierdź");
+        oPostaciPotwierdzButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oPostaciPotwierdzButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -909,10 +832,13 @@ public class mainScreen extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel38)
                     .addComponent(jLabel37)
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2)))
-                .addContainerGap(236, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
+                        .addGap(67, 67, 67)
+                        .addComponent(oPostaciPotwierdzButton)))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -923,9 +849,15 @@ public class mainScreen extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel38)
-                .addGap(7, 7, 7)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(oPostaciPotwierdzButton)
+                        .addGap(35, 35, 35))))
         );
 
         jTabbedPane1.addTab("o postaci", jPanel9);
@@ -1035,7 +967,7 @@ public class mainScreen extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1159,12 +1091,166 @@ public class mainScreen extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("ekwipunek", jPanel2);
 
+        jButton5.setText("obrażenia");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jList4.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Zwykły atak 1", "Atak wielokrotny 2", "Ruch 1", "Szarża 2", "Wycelowanie 1", "Ostrożny atak 2", "Szaleńczy atak 2", "Finta 1 ", "Odepchnięcie 1", "Opóźnienie 1", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane7.setViewportView(jList4);
+
+        jLabel43.setText("Ataki");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel43))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel42.setText("Życie");
+
+        iloscZycia.setText("0");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(iloscZycia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(iloscZycia)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        jLabel47.setText("Bierne");
+
+        jList6.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Ruch 1", "Odwrót 2", "Wstawanie 1", "Dosiadanie wierzchowca 1", "Parowanie 1", "Pozycja obronna 2", "Skok 2", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane10.setViewportView(jList6);
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel47)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        jButton2.setText("uleczenie");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        uwzglZbroj.setText("uwzgl. zbroj.");
+
+        uwzglWyt.setText("uwzg, wytrz.");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(217, 217, 217)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(uwzglZbroj)
+                            .addComponent(jButton5)
+                            .addComponent(uwzglWyt))
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(uwzglWyt)
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2)
+                            .addComponent(uwzglZbroj))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton5))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("walka", jPanel5);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
@@ -1173,7 +1259,7 @@ public class mainScreen extends javax.swing.JFrame {
             .addComponent(jTabbedPane1)
         );
 
-        jMenu1.setText("Plik");
+        jZapiszFolder.setText("Plik");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setText("zapisz folder");
@@ -1182,27 +1268,27 @@ public class mainScreen extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jZapiszFolder.add(jMenuItem1);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("wczytaj folder");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jWczytajFolder.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jWczytajFolder.setText("wczytaj folder");
+        jWczytajFolder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jWczytajFolderActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jZapiszFolder.add(jWczytajFolder);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setText("szybki zapis");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jSzybkiZapis.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jSzybkiZapis.setText("szybki zapis");
+        jSzybkiZapis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jSzybkiZapisActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jZapiszFolder.add(jSzybkiZapis);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jZapiszFolder);
 
         jMenu2.setText("Edytuj");
         jMenuBar1.add(jMenu2);
@@ -1247,35 +1333,65 @@ public class mainScreen extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jWczytajFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jWczytajFolderActionPerformed
         // TODO add your handling code here:
         javax.swing.JFileChooser fc = new javax.swing.JFileChooser();
         fc.setFileSelectionMode(javax.swing.JFileChooser.DIRECTORIES_ONLY);
         if(fc.showOpenDialog(this)==javax.swing.JFileChooser.APPROVE_OPTION){
-            
-                cechy = getHashMapFromTextFile(fc.getSelectedFile().getAbsolutePath()+"/cechy.txt");
-                zbroja = getHashMapFromTextFile(fc.getSelectedFile().getAbsolutePath()+"/zbroja.txt");
-                opis_wygl = readFromFile(fc.getSelectedFile().getAbsolutePath()+"/opis_wygladu.txt");
+                String path = fc.getSelectedFile().getAbsolutePath();
+                cechy = getHashMapFromTextFile(path+"/cechy.txt");
+                zbroja = getHashMapFromTextFile(path+"/zbroja.txt");
+                ogolne = getHashMapFromTextFile(path+"/ogolne.txt");
+                opis_wygl = readFromFile(path+"/opis_wygladu.txt");
+                
+                geneza = readFromFile(path+"/geneza.txt");
+                dziennik = readFromFile(path+"/dziennik.txt");
+                
                 updateValues();
+                cachedPath = fc.getSelectedFile().getAbsolutePath();
+                
         }
-        cachedPath = fc.getSelectedFile().getAbsolutePath();
+        
         
      
         
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jWczytajFolderActionPerformed
 
+    
     private void onLoad(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_onLoad
         // TODO add your handling code here:
+        
+        //cechy
         for(String nazwa : nazwy){
-            cechy.put(nazwa,0);
+            cechy.put(nazwa,"0");
         }
-      zbroja.put("Hełm", 0);
-      zbroja.put("Korpus", 0);
-      zbroja.put("Prawa ręka", 0);
-      zbroja.put("Lewa ręka", 0);
-      zbroja.put("Prawa noga", 0);
-      zbroja.put("Lewa noga", 0);
+        
+        
+        //zbrojka
+      zbroja.put("Hełm", "0");
+      zbroja.put("Korpus", "0");
+      zbroja.put("Prawa ręka", "0");
+      zbroja.put("Lewa ręka", "0");
+      zbroja.put("Prawa noga", "0");
+      zbroja.put("Lewa noga", "0");
         opis_wygl = "opis wyglądu";
+        
+        
+        //--ogolne
+         ogolne.put("Imię", "nie podano");
+        ogolne.put("Rasa", "nie podano");
+        ogolne.put("Obecna profesja","nie podano");
+        ogolne.put("Poprzednia profesja","nie podano");
+        ogolne.put("Wiek", "nie podano");
+        ogolne.put("Waga", "nie podano");
+        ogolne.put("Kolor włosów", "nie podano");
+        ogolne.put("Kolor oczu", "nie podano");
+        ogolne.put("Rodzeństwo", "nie podano");
+        ogolne.put("Znak gwiezdny", "nie podano");
+        ogolne.put("Miejsce urodzenia","nie podano");
+        ogolne.put("Znaki szczególne","nie podano");
+        ogolne.put("Płeć","kobieta");
+        ogolne.put("Aktualne życie", cechy.get("Żyw"));
       
       
       
@@ -1283,44 +1399,45 @@ public class mainScreen extends javax.swing.JFrame {
         
     }//GEN-LAST:event_onLoad
     public void saveValues(String PTH){
+         
             putHashMapToTextFile(PTH+"/cechy.txt",cechy);
             putHashMapToTextFile(PTH+"/zbroja.txt",zbroja);
+            putHashMapToTextFile(PTH+"/ogolne.txt",ogolne);
             writeToFile(PTH+"/opis_wygladu.txt",opis_wygl);
-    
+            writeToFile(PTH+"/geneza.txt",geneza);
+            writeToFile(PTH+"/dziennik.txt",dziennik);
+            
     }
     
     
     
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jSzybkiZapisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSzybkiZapisActionPerformed
         // TODO add your handling code here:
+        
         if(!cachedPath.isEmpty()){
+            JOptionPane.showMessageDialog(plecCombo, cachedPath);
             saveValues(cachedPath);
         }
         
         
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jSzybkiZapisActionPerformed
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu4ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        for(int i = 0; i <  nazwy.length; i++){
-            JOptionPane.showMessageDialog(rootPane,nazwy[i]+cechy.get(nazwy[i]));
-        }
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        zbroja.put("Hełm", Integer.parseInt(Helm.getText()));
-        zbroja.put("Korpus", Integer.parseInt(Korpus.getText()));
-        zbroja.put("Prawa ręka", Integer.parseInt(Prawa_reka.getText()));
-        zbroja.put("Lewa ręka", Integer.parseInt(Lewa_reka.getText()));
-        zbroja.put("Prawa noga", Integer.parseInt(Prawa_noga.getText()));
-        zbroja.put("Lewa noga", Integer.parseInt(Lewa_noga.getText()));
+        zbroja.put("Hełm", Helm.getText());
+        zbroja.put("Korpus", Korpus.getText());
+        zbroja.put("Prawa ręka", Prawa_reka.getText());
+        zbroja.put("Lewa ręka", Lewa_reka.getText());
+        zbroja.put("Prawa noga", Prawa_noga.getText());
+        zbroja.put("Lewa noga", Lewa_noga.getText());
         opis_wygl = opis_wygl_postaci.getText();
+
+        
+        
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1335,12 +1452,13 @@ public class mainScreen extends javax.swing.JFrame {
         for(Component field : jPanel6.getComponents()){
             if(field instanceof javax.swing.JTextField){
                 //JOptionPane.showMessageDialog(rootPane,((javax.swing.JTextField) field).getText());
-                cechy.put(nazwy[i],Integer.parseInt(((javax.swing.JTextField) field).getText()));
+                cechy.put(nazwy[i],((javax.swing.JTextField) field).getText());
                 i++;
             }
 
         }
-
+        ogolne.put("Aktualne życie",cechy.get("Żyw"));
+        updateValues();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void PPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PPActionPerformed
@@ -1407,21 +1525,113 @@ public class mainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_WWActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void kolorWlTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kolorWlTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_kolorWlTextActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void poprProfTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poprProfTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_poprProfTextActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void obProfTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obProfTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_obProfTextActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void imieTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imieTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_imieTextActionPerformed
+
+    private void oPostaciPotwierdzButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oPostaciPotwierdzButtonActionPerformed
+        // TODO add your handling code here:
+        geneza = genezaText.getText();
+        dziennik = dziennikText.getText();
+        
+    }//GEN-LAST:event_oPostaciPotwierdzButtonActionPerformed
+
+    private void ogolnePotwierdzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ogolnePotwierdzActionPerformed
+        // TODO add your handling code here:
+        ogolne.put("Płeć",plecCombo.getSelectedIndex() == 0 ? "kobieta" : "mężczyzna");
+        ogolne.put("Imię",imieText.getText());
+        ogolne.put("Rasa",rasaText.getText());
+        ogolne.put("Obecna profesja",obProfText.getText());
+        ogolne.put("Poprzednia profesja",poprProfText.getText());
+        ogolne.put("Wiek",wiekText.getText());
+        ogolne.put("Waga",wagaText.getText());
+        ogolne.put("Kolor włosów",kolorWlText.getText());
+        ogolne.put("Kolor oczu",kolorOczText.getText());
+        ogolne.put("Rodzeństwo",rodzenstwoText.getText());
+        ogolne.put("Znak gwiezdny",znakGwiezdnyText.getText());
+        ogolne.put("Miejsce urodzenia",mUroText.getText());
+        ogolne.put("Znaki szczególne",znSzczegText.getText());
+        
+        
+        ogolne.put("Aktualne życie",iloscZycia.getText());
+    }//GEN-LAST:event_ogolnePotwierdzActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        int obrazenia = Integer.parseInt(JOptionPane.showInputDialog("podaj ilosc obrazen"));
+        if(uwzglWyt.isSelected()){
+            obrazenia -= Integer.parseInt(cechy.get("Wt"));
+        }
+        if(uwzglZbroj.isSelected()){
+            String[] options = {"korpus", "hełm","prawa ręka", "lewa ręka", "prawa noga", "lewa noga"};
+           javax.swing.JComboBox comb = new javax.swing.JComboBox(options);
+           JOptionPane.showMessageDialog(this,comb,"podaj: ",JOptionPane.QUESTION_MESSAGE);
+           int czCial = comb.getSelectedIndex();
+           String zbrojDef = "0";
+           switch(czCial){
+               case 0:
+                   zbrojDef = zbroja.get("Korpus");
+                   break;
+               case 1:
+                   zbrojDef = zbroja.get("Hełm");
+                   break;
+               case 2:
+                   zbrojDef = zbroja.get("Prawa ręka");
+                   break;
+               case 3:
+                   zbrojDef = zbroja.get("Lewa ręka");
+                   break;
+               case 4:
+                   zbrojDef = zbroja.get("Prawa noga");
+                   break;
+               case 5:
+                   zbrojDef = zbroja.get("Lewa noga");
+                   break;
+           }
+           
+           obrazenia-= Integer.parseInt(zbrojDef);
+           
+           
+       
+        }
+        
+        
+        
+        
+        
+        
+        ogolne.put("Aktualne życie",(Integer.parseInt(ogolne.get("Aktualne życie")) - obrazenia) + "");
+        if(Integer.parseInt(ogolne.get("Aktualne życie")) < 0){
+            JOptionPane.showMessageDialog(this,"krytyk!!!");
+        
+        }
+        updateValues();
+        
+       
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int obrazenia = Integer.parseInt(JOptionPane.showInputDialog("podaj wartość leczenia"));
+        
+        ogolne.put("Aktualne życie",(Integer.parseInt(ogolne.get("Aktualne życie")) + obrazenia) + "");
+        if(Integer.parseInt(ogolne.get("Aktualne życie")) > Integer.parseInt(cechy.get("Żyw"))){
+            ogolne.put("Aktualne życie", cechy.get("Żyw"));
+        }
+        updateValues();
+    }//GEN-LAST:event_jButton2ActionPerformed
    public void updateValues(){
                 int i = 0;
                 for(Component field : jPanel6.getComponents()){
@@ -1432,6 +1642,8 @@ public class mainScreen extends javax.swing.JFrame {
                     }
                 }
                 
+                
+                //-----zbrojka
                 opis_wygl_postaci.setText(opis_wygl);
                Helm.setText(""+zbroja.get("Hełm"));
                Korpus.setText(""+zbroja.get("Korpus"));
@@ -1440,6 +1652,31 @@ public class mainScreen extends javax.swing.JFrame {
                Prawa_noga.setText(""+zbroja.get("Prawa noga"));
                Lewa_noga.setText(""+zbroja.get("Lewa noga"));
                opis_wygl_postaci.setText(""+opis_wygl);
+               
+               //----inne 
+               
+               dziennikText.setText(dziennik);
+               genezaText.setText(geneza);
+               
+               //----ogólne
+               znSzczegText.setText(""+ogolne.get("Znaki szczególne"));
+               mUroText.setText(""+ogolne.get("Miejsce urodzenia"));
+               znakGwiezdnyText.setText(""+ogolne.get("Znak gwiezdny"));
+               rodzenstwoText.setText(""+ogolne.get("Rodzeństwo"));
+               kolorOczText.setText(""+ogolne.get("Kolor oczu"));
+               kolorWlText.setText(""+ogolne.get("Kolor włosów"));
+               wagaText.setText(""+ogolne.get("Waga"));
+               wiekText.setText(""+ogolne.get("Wiek"));
+               poprProfText.setText(""+ogolne.get("Poprzednia profesja"));
+               obProfText.setText(""+ogolne.get("Obecna profesja"));
+               rasaText.setText(""+ogolne.get("Rasa"));
+               imieText.setText(""+ogolne.get("Imię"));
+               plecCombo.setSelectedIndex(ogolne.get("Płeć").equals("kobieta") ? 0 : 1);
+               
+               
+               iloscZycia.setText(ogolne.get("Aktualne życie"));
+ 
+               
      
    }
    
@@ -1486,13 +1723,13 @@ public class mainScreen extends javax.swing.JFrame {
    }
     
     
-    public static void putHashMapToTextFile(String outputFilePath, Map<String,Integer> mapa){
+    public static void putHashMapToTextFile(String outputFilePath, Map<?,?> mapa){
                 BufferedWriter bf = null;
         File file = new File(outputFilePath);
         
         try {
             bf = new BufferedWriter(new FileWriter(file));
-            for(Map.Entry<String,Integer> entry : mapa.entrySet()){
+            for(Map.Entry<?,?> entry : mapa.entrySet()){
                 bf.write( entry.getKey() + ":" + entry.getValue());
                 bf.newLine();
             }
@@ -1509,9 +1746,9 @@ public class mainScreen extends javax.swing.JFrame {
     }
     
    
-    public static Map<String,Integer> getHashMapFromTextFile(String filePath){
+    public static Map<String,String> getHashMapFromTextFile(String filePath){
         
-        Map<String,Integer> mapFileContents = new HashMap<>();
+        Map<String,String> mapFileContents = new HashMap<>();
         BufferedReader br = null;
         try {
             File file = new File(filePath);
@@ -1523,7 +1760,7 @@ public class mainScreen extends javax.swing.JFrame {
             while((line = br.readLine()) != null){
                 String[] parts = line.split(":");
                 String key = parts[0].trim();
-                Integer stat = Integer.parseInt(parts[1].trim());
+                String stat = parts[1].trim();
                 
                 if(!key.equals("")&& !stat.equals("")){
                     mapFileContents.put(key, stat);
@@ -1605,14 +1842,15 @@ public class mainScreen extends javax.swing.JFrame {
     private javax.swing.JTextField WW;
     private javax.swing.JTextField Wt;
     private javax.swing.JTextField Zr;
+    private javax.swing.JTextArea dziennikText;
+    private javax.swing.JTextArea genezaText;
+    private javax.swing.JLabel iloscZycia;
+    private javax.swing.JTextField imieText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1655,6 +1893,7 @@ public class mainScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1665,13 +1904,11 @@ public class mainScreen extends javax.swing.JFrame {
     private javax.swing.JList<String> jList3;
     private javax.swing.JList<String> jList4;
     private javax.swing.JList<String> jList5;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JList<String> jList6;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -1681,6 +1918,7 @@ public class mainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1690,6 +1928,7 @@ public class mainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1698,25 +1937,30 @@ public class mainScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JMenuItem jSzybkiZapis;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JMenuItem jWczytajFolder;
+    private javax.swing.JMenu jZapiszFolder;
+    private javax.swing.JTextField kolorOczText;
+    private javax.swing.JTextField kolorWlText;
+    private javax.swing.JTextField mUroText;
+    private javax.swing.JButton oPostaciPotwierdzButton;
+    private javax.swing.JTextField obProfText;
+    private javax.swing.JButton ogolnePotwierdz;
     private javax.swing.JTextArea opis_wygl_postaci;
+    private javax.swing.JComboBox<String> plecCombo;
+    private javax.swing.JTextField poprProfText;
+    private javax.swing.JTextField rasaText;
+    private javax.swing.JTextField rodzenstwoText;
+    private javax.swing.JCheckBox uwzglWyt;
+    private javax.swing.JCheckBox uwzglZbroj;
+    private javax.swing.JTextField wagaText;
+    private javax.swing.JTextField wiekText;
+    private javax.swing.JTextField znSzczegText;
+    private javax.swing.JTextField znakGwiezdnyText;
     private javax.swing.JTextField Żyw;
     // End of variables declaration//GEN-END:variables
 }
